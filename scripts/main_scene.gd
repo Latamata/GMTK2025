@@ -33,3 +33,15 @@ func _on_button_button_down() -> void:
 
 func _on_button_2_button_down() -> void:
 	get_tree().paused = false
+
+var HOOP_LOOP: PackedScene = preload("res://scenes/circle_loop.tscn")
+
+func _on_hoop_loop_spawn_timeout() -> void:
+
+	
+	if $hoop_loops_group.get_child_count() < 15:
+
+		var hoop_loop_instance = HOOP_LOOP.instantiate()
+		$hoop_loops_group.add_child(hoop_loop_instance)
+		
+		hoop_loop_instance.position = $hoop_loop_spawn_point.position
