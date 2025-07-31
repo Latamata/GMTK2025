@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=3 uid="uid://hj33iicwofnh"]
+
+[ext_resource type="Script" uid="uid://bvgr5aqgct81d" path="res://scenes/main_scene.gd" id="1_pw63i"]
+[ext_resource type="Texture2D" uid="uid://b46jcb6bos2hy" path="res://assets/circles.png" id="1_w2twt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pw63i"]
+radius = 169.0
+height = 780.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ykc4"]
+size = Vector2(817, 75)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ykc4"]
+radius = 30.0167
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu3yx"]
+atlas = ExtResource("1_w2twt")
+region = Rect2(13.1875, 24.5757, 59.3692, 60.0874)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pw63i"]
+size = Vector2(115, 303)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pu3yx"]
+size = Vector2(113, 333)
+
+[node name="Main_scene" type="Node2D"]
+script = ExtResource("1_pw63i")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(616, 312)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pw63i")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+build_mode = 1
+polygon = PackedVector2Array(192, 67, 109, 165, 109, 464, 204, 564, 1024, 562, 1125, 470, 1116, 140, 1007, 67)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(244, 495)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(370, 27)
+shape = SubResource("RectangleShape2D_7ykc4")
+debug_color = Color(0.675408, 0.486855, 0.389326, 0.42)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(265, 130)
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_7ykc4")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture = SubResource("AtlasTexture_pu3yx")
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+position = Vector2(166, 146)
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+shape = SubResource("CircleShape2D_7ykc4")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D2"]
+texture = SubResource("AtlasTexture_pu3yx")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(252, 45)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(345.5, 60.5)
+shape = SubResource("RectangleShape2D_7ykc4")
+debug_color = Color(0.675408, 0.486855, 0.389326, 0.42)
+
+[node name="Area2D3" type="Area2D" parent="."]
+position = Vector2(139, 181)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(28.5, 135.5)
+shape = SubResource("RectangleShape2D_pw63i")
+debug_color = Color(0.697799, 0.444935, 0.574222, 0.42)
+
+[node name="Area2D4" type="Area2D" parent="."]
+position = Vector2(1007, 159)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
+position = Vector2(57.5, 156.5)
+shape = SubResource("RectangleShape2D_pu3yx")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="body_entered" from="Area2D3" to="." method="_on_area_2d_3_body_entered"]
+[connection signal="body_entered" from="Area2D4" to="." method="_on_area_2d_4_body_entered"]
