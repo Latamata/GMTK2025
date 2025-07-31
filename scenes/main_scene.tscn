@@ -8,7 +8,7 @@ radius = 169.0
 height = 780.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ykc4"]
-size = Vector2(817, 75)
+size = Vector2(841, 101)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ykc4"]
 radius = 30.0167
@@ -37,13 +37,13 @@ shape = SubResource("CapsuleShape2D_pw63i")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
 build_mode = 1
-polygon = PackedVector2Array(192, 67, 109, 165, 109, 464, 204, 564, 1024, 562, 1125, 470, 1116, 140, 1007, 67)
+polygon = PackedVector2Array(192, 67, 109, 165, 109, 464, 208, 573, 1022, 579, 1125, 470, 1116, 140, 1007, 67)
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(244, 495)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(370, 27)
+position = Vector2(364.5, 30.5)
 shape = SubResource("RectangleShape2D_7ykc4")
 debug_color = Color(0.675408, 0.486855, 0.389326, 0.42)
 
@@ -90,7 +90,22 @@ position = Vector2(1007, 159)
 position = Vector2(57.5, 156.5)
 shape = SubResource("RectangleShape2D_pu3yx")
 
+[node name="Button" type="Button" parent="."]
+offset_right = 113.0
+offset_bottom = 52.0
+text = "stop"
+
+[node name="Button2" type="Button" parent="."]
+process_mode = 2
+offset_left = 3.0
+offset_top = 54.0
+offset_right = 92.0
+offset_bottom = 85.0
+text = "Play"
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
 [connection signal="body_entered" from="Area2D3" to="." method="_on_area_2d_3_body_entered"]
 [connection signal="body_entered" from="Area2D4" to="." method="_on_area_2d_4_body_entered"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]
