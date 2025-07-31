@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bihly12njvogf"]
+
+[ext_resource type="Texture2D" uid="uid://b46jcb6bos2hy" path="res://assets/circles.png" id="1_jf1nt"]
+[ext_resource type="Script" uid="uid://cfmqf30p8s5ed" path="res://scripts/circle_loop.gd" id="1_oispl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oispl"]
+atlas = ExtResource("1_jf1nt")
+region = Rect2(13.5986, 25.3233, 59.3692, 58.4116)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oispl"]
+radius = 29.0172
+
+[node name="hoop_loops" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_oispl")
+
+[node name="Button" type="Button" parent="."]
+process_mode = 2
+offset_left = -38.0
+offset_top = -36.0
+offset_right = 34.0
+offset_bottom = 34.0
+focus_mode = 0
+icon = SubResource("AtlasTexture_oispl")
+flat = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_oispl")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

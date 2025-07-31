@@ -20,11 +20,6 @@ func _on_area_2d_4_body_entered(body: Node2D) -> void:
 	if body is RigidBody2D:
 		body.apply_central_impulse(Vector2.UP * push_force)
 
-@onready var rigid_body_2d: RigidBody2D = $RigidBody2D
-@onready var rigid_body_2d_2: RigidBody2D = $RigidBody2D2
-
-
-
 
 @onready var areas := [
 	$Area2D,
