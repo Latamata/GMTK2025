@@ -13,7 +13,7 @@ func _ready() -> void:
 
 	match color_of_hoop:
 		"blue":
-			atlas_tex.region = Rect2(Vector2(170, 24), Vector2(60, 60))
+			atlas_tex.region = Rect2(Vector2(167, 24), Vector2(60, 60))
 		"red":
 			atlas_tex.region = Rect2(Vector2(87, 24), Vector2(60, 60))
 		"yellow":

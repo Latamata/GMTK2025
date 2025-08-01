@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3fp4cdcd1tll"]
+
+[ext_resource type="Script" uid="uid://eidf3a8dxye1" path="res://scripts/boost_speed_area_side.gd" id="1_ck30m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qal0x"]
+size = Vector2(122.5, 263)
+
+[node name="boost_speed_area_side" type="Area2D"]
+script = ExtResource("1_ck30m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qal0x")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
