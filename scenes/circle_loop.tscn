@@ -8,7 +8,7 @@ atlas = ExtResource("1_jf1nt")
 region = Rect2(13.5986, 25.3233, 59.3692, 58.4116)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oispl"]
-radius = 29.0172
+radius = 27.0
 
 [node name="hoop_loops" type="RigidBody2D"]
 gravity_scale = 0.0

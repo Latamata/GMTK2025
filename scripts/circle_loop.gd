@@ -18,5 +18,6 @@ func _ready() -> void:
 			atlas_tex.region = Rect2(Vector2(14, 26), Vector2(60, 60))
 
 func _on_button_button_down() -> void:
+	print( Globals.random_selected_color)
 	if color_of_hoop == Globals.random_selected_color:
 		call_deferred("queue_free")

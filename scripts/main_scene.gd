@@ -3,14 +3,7 @@ extends Node2D
 @export var push_force: float = 500.0
 @onready var hoop_loops_group: Node2D = $hoop_loops_group
 @onready var ui: CanvasLayer = $UI
-
-func _on_button_button_down() -> void:
-	get_tree().paused = true
-
-func _on_button_2_button_down() -> void:
-	#get_tree().paused = false
-	ui.random_circle_loop()
-
+signal last_circle
 
 var HOOP_LOOP: PackedScene = preload("res://scenes/circle_loop.tscn")
 func _on_hoop_loop_spawn_timeout() -> void:
@@ -30,10 +23,20 @@ func _on_hoop_loops_group_child_exiting_tree(node: Node) -> void:
 	if "color_of_hoop" in node:
 		var color = node.color_of_hoop
 		Globals.active_hoop_colors.erase(color)
+		Globals.score_total += 1
+		ui.update_score()
 		print("Removed color:", color)
 		if Globals.active_hoop_colors.count(Globals.random_selected_color) == 0:
 			print("No hoops left with selected color:", Globals.random_selected_color)
-			$unpause_timer.start()
+			if $Timer.is_inside_tree():
+				$Timer.start()
+			else:
+				print("Timer not yet in scene tree!")
 
-func _on_unpause_timer_timeout() -> void:
+
+func _on_timer_timeout() -> void:
 	get_tree().paused = false
+	if Globals.game_won:
+		get_tree().change_scene_to_file("res://scenes/end_scene.tscn")
+	else:
+		ui.start_countdown()

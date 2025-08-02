@@ -13,8 +13,9 @@ script = ExtResource("1_x4jx1")
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 210.0
-offset_bottom = 100.0
+offset_right = 155.0
+offset_bottom = 77.0
+mouse_filter = 1
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 0
@@ -23,11 +24,32 @@ offset_bottom = 73.0
 color = Color(0, 0, 0, 1)
 
 [node name="selected_circle" type="Sprite2D" parent="Control/ColorRect"]
+visible = false
 position = Vector2(113, 36)
 texture = SubResource("AtlasTexture_gdt2y")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/ColorRect"]
 layout_mode = 0
-offset_right = 78.0
-offset_bottom = 40.0
-text = "Random"
+offset_right = 85.0
+offset_bottom = 69.0
+text = "Click all of these circles"
+
+[node name="TImer_UI" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 74.0
+offset_right = 41.0
+offset_bottom = 97.0
+
+[node name="timout_counter" type="Timer" parent="Control"]
+
+[node name="score" type="Label" parent="Control"]
+process_mode = 3
+layout_mode = 0
+offset_left = 154.0
+offset_top = 3.0
+offset_right = 202.0
+offset_bottom = 26.0
+text = "Score:"
+
+[connection signal="timeout" from="Control/timout_counter" to="." method="_on_timout_counter_timeout"]
