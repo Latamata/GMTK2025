@@ -42,7 +42,6 @@ text = "stop"
 metadata/_edit_use_anchors_ = true
 
 [node name="Button2" type="Button" parent="."]
-process_mode = 2
 offset_top = 134.0
 offset_right = 89.0
 offset_bottom = 165.0
@@ -51,6 +50,7 @@ text = "Play"
 metadata/_edit_use_anchors_ = true
 
 [node name="hoop_loops_group" type="Node2D" parent="."]
+process_mode = 3
 position = Vector2(-46, 12)
 
 [node name="hoop_loop_spawn" type="Timer" parent="."]
@@ -95,8 +95,14 @@ push_direction = Vector2(1, 0)
 
 [node name="UI" parent="." instance=ExtResource("5_gubc5")]
 
+[node name="unpause_timer" type="Timer" parent="."]
+process_mode = 2
+wait_time = 0.334
+one_shot = true
+
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]
 [connection signal="child_entered_tree" from="hoop_loops_group" to="." method="_on_hoop_loops_group_child_entered_tree"]
 [connection signal="child_exiting_tree" from="hoop_loops_group" to="." method="_on_hoop_loops_group_child_exiting_tree"]
 [connection signal="timeout" from="hoop_loop_spawn" to="." method="_on_hoop_loop_spawn_timeout"]
+[connection signal="timeout" from="unpause_timer" to="." method="_on_unpause_timer_timeout"]
