@@ -45,5 +45,5 @@ func _on_timout_counter_timeout() -> void:
 
 func update_score():
 	$Control/score.text = "Score: " + str(Globals.score_total)
-	if Globals.score_total >= 20:
+	if Globals.score_total >= 25:
 		Globals.game_won = true
