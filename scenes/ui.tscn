@@ -17,10 +17,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -727.0
-offset_top = -206.0
-offset_right = -525.0
-offset_bottom = -129.0
+offset_left = -389.0
+offset_top = -30.0
+offset_right = -135.0
+offset_bottom = 47.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -29,12 +29,11 @@ mouse_filter = 1
 layout_mode = 0
 offset_left = 9.0
 offset_top = -3.0
-offset_right = 216.0
+offset_right = 249.0
 offset_bottom = 70.0
 color = Color(0, 0, 0, 1)
 
 [node name="selected_circle" type="Sprite2D" parent="Control/ColorRect"]
-visible = false
 position = Vector2(113, 36)
 texture = SubResource("AtlasTexture_gdt2y")
 
@@ -46,20 +45,20 @@ text = "Click all of these circles"
 
 [node name="TImer_UI" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 74.0
-offset_right = 41.0
-offset_bottom = 97.0
+offset_left = 173.0
+offset_top = 39.0
+offset_right = 213.0
+offset_bottom = 62.0
 
 [node name="timout_counter" type="Timer" parent="Control"]
 
 [node name="score" type="Label" parent="Control"]
 process_mode = 3
 layout_mode = 0
-offset_left = 154.0
-offset_top = 3.0
-offset_right = 202.0
-offset_bottom = 26.0
+offset_left = 167.0
+offset_top = -2.0
+offset_right = 215.0
+offset_bottom = 21.0
 text = "Score:"
 
 [connection signal="timeout" from="Control/timout_counter" to="." method="_on_timout_counter_timeout"]
