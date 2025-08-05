@@ -1,4 +1,5 @@
 GMTK 2025 - RingRacers
+
 Overview
 Color Loop Challenge is a simple and fun game created for the GMTK 2025 Game Jam using the Godot engine. In this game, circles move in a continuous loop around the screen. After a while, they stop, and a random color from three possible colors is chosen. Your goal is to quickly select all the circles of the chosen color before time runs out!
 
